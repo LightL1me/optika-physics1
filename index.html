@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Визуализация физических явлений</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <h1>Визуализация физических явлений</h1>
+    <p>Интерактивная модель поведения света</p>
+</header>
+
+<div class="container">
+
+    <div class="tabs">
+
+        <button class="tab active" data-mode="reflection">
+            Отражение
+        </button>
+
+        <button class="tab" data-mode="refraction">
+            Преломление
+        </button>
+
+        <button class="tab" data-mode="tir">
+            Полное внутреннее отражение
+        </button>
+
+        <button class="tab" data-mode="dispersion">
+            Дисперсия
+        </button>
+
+        <button class="tab" data-mode="interference">
+            Интерференция
+        </button>
+
+    </div>
+
+    <div class="content">
+
+        <div class="controls">
+
+            <h2 id="title">Отражение света</h2>
+
+            <div class="control" id="angleControl">
+
+                <label>
+                    <span>Угол падения</span>
+                    <span id="angleValue">45°</span>
+                </label>
+
+                <input
+                    type="range"
+                    id="angle"
+                    min="5"
+                    max="85"
+                    value="45"
+                >
+
+            </div>
+
+            <div class="control" id="mediumControl">
+
+                <label>
+                    <span>Среда</span>
+                </label>
+
+                <select id="medium">
+                    <option value="1.00">Воздух — 1.00</option>
+                    <option value="1.33">Вода — 1.33</option>
+                    <option value="1.50" selected>Стекло — 1.50</option>
+                    <option value="2.42">Алмаз — 2.42</option>
+                </select>
+
+            </div>
+
+            <div class="control" id="refractiveControl">
+
+                <label>
+                    <span>Показатель преломления</span>
+                    <span id="nValue">1.50</span>
+                </label>
+
+                <input
+                    type="range"
+                    id="refractive"
+                    min="1.00"
+                    max="2.50"
+                    step="0.01"
+                    value="1.50"
+                >
+
+            </div>
+
+            <div class="control" id="wavelengthControl">
+
+                <label>
+                    <span>Длина волны</span>
+                    <span id="wavelengthValue">550 нм</span>
+                </label>
+
+                <input
+                    type="range"
+                    id="wavelength"
+                    min="400"
+                    max="700"
+                    value="550"
+                >
+
+            </div>
+
+            <div class="control" id="dispersionModeControl">
+
+                <label>
+                    <span>Режим</span>
+                </label>
+
+                <select id="dispersionMode">
+                    <option value="single">Один луч</option>
+                    <option value="spectrum">Весь спектр</option>
+                </select>
+
+            </div>
+
+            <div class="control" id="phaseControl">
+
+                <label>
+                    <span>Сдвиг фазы</span>
+                    <span id="phaseValue">0°</span>
+                </label>
+
+                <input
+                    type="range"
+                    id="phase"
+                    min="0"
+                    max="360"
+                    value="0"
+                >
+
+            </div>
+
+            <div class="formula" id="formula">
+
+                <strong>Закон отражения</strong>
+
+                <br><br>
+
+                θ₁ = θ₂
+
+            </div>
+
+            <div class="status" id="status">
+                Луч отражается от поверхности.
+            </div>
+
+        </div>
+
+        <div class="visual">
+
+            <canvas
+                id="canvas"
+                width="850"
+                height="560">
+            </canvas>
+
+            <div class="legend" id="legend">
+
+                <span>
+                    <i class="blue"></i>
+                    Падающий луч
+                </span>
+
+                <span>
+                    <i class="red"></i>
+                    Отражённый луч
+                </span>
+
+                <span>
+                    <i class="green"></i>
+                    Преломлённый луч
+                </span>
+
+                <span>
+                    <i class="gray"></i>
+                    Нормаль
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="info">
+
+        <h3>Как это работает?</h3>
+
+        <p id="description">
+            При отражении света угол падения равен
+            углу отражения. Измените угол с помощью
+            ползунка и посмотрите, как изменяется
+            направление луча.
+        </p>
+
+    </div>
+
+</div>
+
+<script src="code.js"></script>
+
+</body>
+</html>
